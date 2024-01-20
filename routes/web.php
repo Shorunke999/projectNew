@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
+
+
+
+# project_new
+to activate or send email, we need to restart worker with 
+project_new>php artisan queue:restart[enter]
+and
+>>php artisan queue:work [enter]...starting worker to dipacth email
+this is done to reduce the runtime of the web app when dipatching the email.
+>>php artisan serve[enter to start serve]
+
 |
 */
 
