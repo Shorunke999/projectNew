@@ -28,6 +28,7 @@ this is done to reduce the runtime of the web app when dipatching the email.
 Route::middleware('custom_middleware')->group(function(){
     Route::get('/dashboard',[\App\Http\Controllers\Controller::class,'Dashboard'])->name('dash');
     Route::post('/uploadProfilePics',[\App\Http\Controllers\uploadController::class,'save_pics_path'])->name('pics');
+    Route::post('/logout',[\App\Http\Controllers\Controller::class,'Logout'])->name('logout');
 });
 Route::get('/', function () {
     return view('welcome');

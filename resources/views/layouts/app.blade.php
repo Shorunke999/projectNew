@@ -106,6 +106,9 @@
     </main>
 
     <footer>
+        @auth
+            <a href="{{route('logout')}}">Logout</a>
+        @endauth
         <p>&copy; 2024 Your App</p>
     </footer>
 </body>
