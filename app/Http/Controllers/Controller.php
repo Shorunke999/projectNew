@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Mail;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+    //controllers
     public function getRegister(){
         return view('register');
     }
