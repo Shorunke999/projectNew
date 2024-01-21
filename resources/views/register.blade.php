@@ -4,7 +4,7 @@
 @section('content')
     <main class="center-container">
         <div class="form-container">
-            <form method="post" action="{{ route('register') }}">
+            <form method="post" action="{{ route('postregister') }}">
                 <div class="form-group">
                     <label for="name">Input Name</label>
                     <input type="text" name="name" value="{{ old('name') }}" id="name">
@@ -21,7 +21,7 @@
                     <label for="v_password">Verify password</label>
                     <input type="password" name="v_password" id="v_password">
                 </div>
-                <button type="submit" id='submit'>Submit form</button>
+                <button type="submit" class='button'>Submit form</button>
             </form>
 
             <div id="error-message">

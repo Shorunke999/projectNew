@@ -27,12 +27,12 @@ this is done to reduce the runtime of the web app when dipatching the email.
 
 Route::middleware('custom_middleware')->group(function(){
     Route::get('/dashboard',[\App\Http\Controllers\Controller::class,'Dashboard'])->name('dash');
-    Route::post('/uploadProfilePics',[\App\Http\Controllers\Controller::class,'save_pics_path'])->name('pics');
+    Route::post('/uploadProfilePics',[\App\Http\Controllers\uploadController::class,'save_pics_path'])->name('pics');
 });
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/Register',[\App\Http\Controllers\Controller::class,'getRegister']);
-Route::post('/Register',[\App\Http\Controllers\Controller::class,'Register'])->name('register');
+Route::get('/getRegister',[\App\Http\Controllers\Controller::class,'getRegister'])->name('register');
+Route::post('/postRegister',[\App\Http\Controllers\Controller::class,'Register'])->name('postregister');
 Route::get('/login',[\App\Http\Controllers\Controller::class,'getLogin'])->name('login');
 Route::post('/loginpost',[\App\Http\Controllers\Controller::class,'Login'])->name('loginpost');

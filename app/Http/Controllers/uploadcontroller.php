@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class uploadcontroller extends Controller
 {
     public function save_pics_path(Request $request){
-        dd('moving');
         $request->validate([
             'profile_pics'=> 'required|image|max:2048'
         ]);

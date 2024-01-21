@@ -20,27 +20,33 @@ class Controller extends BaseController
         return view('register');
     }
     public function Register(Request $request){
-        $request->validate([
+        if($request->password == $request->v_password){
+            $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required'
-        ]);
-        $userExist = User::where('email',$request->email)->first();
-        if(!$userExist){
-            $valid_user = User::create([
-            'name' => $request->name,
-            'email'=>$request->email,
-            'password'=> Hash::make($request->password)
             ]);
-            Auth::login($valid_user);
-            //dd($request);
-            Helper::Mail($request);
-            return redirect('/dashboard');
-        }else{
-            //dd($request);
-            return redirect()->back()
-            ->with('msg','user already exist');
+            $userExist = User::where('email',$request->email)->first();
+            if(!$userExist){
+                $valid_user = User::create([
+                'name' => $request->name,
+                'email'=>$request->email,
+                'password'=> Hash::make($request->password)
+                ]);
+                Auth::login($valid_user);
+                //dd($request);
+                Helper::Mail($request);
+                return view('dashboard');
+            }else{  
+                //dd($request);
+                return redirect('/getRegister')
+                ->with('msg','user already exist');
+                }
+            }else{
+            return redirect('/getRegister')
+            ->with('msg','password verification does not match password');
         }
+        
         
     }
     public function getLogin(){

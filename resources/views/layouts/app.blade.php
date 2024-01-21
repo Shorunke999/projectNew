@@ -92,9 +92,9 @@
         <h1>Your App</h1>
         <div class="top-right">
             @auth
-                @if(auth()->user()->profile_pics)
+                @if(auth()->user()->profile_pics && !route('dash'))
                     <img src="{{ asset('storage/' . auth()->user()->profile_pics) }}" alt="Profile Picture" class="profile-pic">
-                @else
+                @elseif(!route('dash'))
                     @include('layouts.profilePics')
                 @endif
             @endauth
